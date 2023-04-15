@@ -1,9 +1,4 @@
-.buttonSuits{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 4px;
-}
+
 .redButton{
     color: red;
     border: none;
@@ -23,12 +18,4 @@
   
   }
 
-  .redButton:hover{
-     border: solid red 1px;  
-    border-radius: 5px;    
-  }
-  .blackButton:hover{
-      border: solid black 1px;
-      border-radius: 5px;
-  }
-  
+ 

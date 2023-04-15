@@ -71,7 +71,7 @@ class Table extends React.Component {
             </tr>
           </tbody>
         </table>
-        <hr />
+      
       </div>
     );
   }
