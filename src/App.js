@@ -1,11 +1,16 @@
 import './App.css';
 import Table from './components/Table';
+import Button from './components/Button';
+
+
+
+
+
 
 function App() {
   return (
     <div className="App">
-     <button className='redButton'>Vermelho</button>
-     <button className='blackButton'>Preto</button>
+    <Button />
      <h1>CANASTRA</h1>
      <hr/>
     <Table />
