@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/canastra/static/css/main.475716fc.css",
-    "main.js": "/canastra/static/js/main.c5c4f787.js",
+    "main.css": "/canastra/static/css/main.e94d7437.css",
+    "main.js": "/canastra/static/js/main.900361e7.js",
     "index.html": "/canastra/index.html",
-    "main.475716fc.css.map": "/canastra/static/css/main.475716fc.css.map",
-    "main.c5c4f787.js.map": "/canastra/static/js/main.c5c4f787.js.map"
+    "main.e94d7437.css.map": "/canastra/static/css/main.e94d7437.css.map",
+    "main.900361e7.js.map": "/canastra/static/js/main.900361e7.js.map"
   },
   "entrypoints": [
-    "static/css/main.475716fc.css",
-    "static/js/main.c5c4f787.js"
+    "static/css/main.e94d7437.css",
+    "static/js/main.900361e7.js"
   ]
 }
