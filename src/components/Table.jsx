@@ -52,6 +52,7 @@ class Table extends React.Component {
                     placeholder="0"
                     value={score}
                     onChange={(e) => this.handleInputChange(e, index, "user1")}
+                    
                   />
                 </td>
                 <td>

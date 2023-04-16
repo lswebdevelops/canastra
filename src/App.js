@@ -9,6 +9,7 @@ import ButtonUser2 from './components/ButtonUser2';
 
 
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -22,14 +23,28 @@ class App extends React.Component {
      this.manageClickUser2 = this.manageClickUser2.bind(this);
     this.handleRedClick = this.handleRedClick.bind(this);
     this.handleBlackClick = this.handleBlackClick.bind(this);
+    this.manageNumberClickUser1 = this.manageNumberClickUser1.bind(this);
+    this.manageNumberClickUser2 = this.manageNumberClickUser2.bind(this);
+
   }
   manageClickUser1(){
     this.setState(({ numClicksUser1 })=>({ numClicksUser1: numClicksUser1 + 1}));
   }
+  manageNumberClickUser1(){
+    if(this.state.numClicksUser1 > 0){
+      this.setState(({ numClicksUser1 })=>({ numClicksUser1: numClicksUser1 - 1}));
+    }
+  }
+  
   manageClickUser2(){
     this.setState(({ numClicksUser2 })=>({ numClicksUser2: numClicksUser2 + 1}));
   }
-
+  manageNumberClickUser2(){
+    if(this.state.numClicksUser2){
+      this.setState(({ numClicksUser2 })=>({ numClicksUser2: numClicksUser2 - 1}));
+    }
+  }
+  
 
   handleRedClick() {
     this.setState({
@@ -44,6 +59,7 @@ class App extends React.Component {
       isBlackActive: true,
     });
   }
+ 
 
   render() {
     const hrClassName = this.state.isRedActive ? 'hrColorRed' : 'hrColorBlack';
@@ -58,7 +74,8 @@ class App extends React.Component {
         <div className='coutingRounds'>
         <div className='div-wins'>Partidas<br></br> ganhas</div> 
         <Counter 
-        numClicksUser1={this.state.numClicksUser1}   
+        numClicksUser1={this.state.numClicksUser1}
+        manageNumberClickUser1={this.manageNumberClickUser1}   
          />
          <ButtonUser1 
          text="+"
@@ -66,6 +83,7 @@ class App extends React.Component {
          />
           <Counter 
           numClicksUser2={this.state.numClicksUser2}
+          manageNumberClickUser2={this.manageNumberClickUser2}   
          />
          <ButtonUser2
          text="+" 
@@ -75,6 +93,8 @@ class App extends React.Component {
         </div>
         <Table />
         <hr className={hrClassName} />
+      
+
       </div>
     );
   }
