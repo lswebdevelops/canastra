@@ -53,3 +53,17 @@ table {
     font-weight: 600;
 
   }
+
+  .buttonRestartPoints{
+    
+    color: black;
+    margin-right: 4px;
+    height: 50px;
+    width: auto;
+    font-size: 22px;
+    font-weight: 500;   
+    margin-top: 12px;  
+
+
+
+}

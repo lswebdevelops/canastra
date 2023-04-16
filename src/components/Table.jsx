@@ -1,81 +1,79 @@
-import React from "react";
+import React, { useState } from 'react';
+
 import "../styles/Table.css";
 
-class Table extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user1Scores: [0, 0, 0, 0, 0], // array to store user1 scores for each round
-      user2Scores: [0, 0, 0, 0, 0], // array to store user2 scores for each round
-    };
-  }
+const Table = () => {
+  const [user1Scores, setUser1Scores] = useState([0, 0, 0, 0, 0]);
+  const [user2Scores, setUser2Scores] = useState([0, 0, 0, 0, 0]);
 
-  handleInputChange = (event, index, user) => {
+  const handleInputChange = (event, index, user) => {
     const value = event.target.value;
-    const scores = user === "user1" ? [...this.state.user1Scores] : [...this.state.user2Scores];
-    scores[index] = value ? parseInt(value) : 0;
-    user === "user1"
-      ? this.setState({ user1Scores: scores })
-      : this.setState({ user2Scores: scores });
+    if (user === "user1") {
+      setUser1Scores([...user1Scores.slice(0, index), parseInt(value), ...user1Scores.slice(index + 1)]);
+    } else {
+      setUser2Scores([...user2Scores.slice(0, index), parseInt(value), ...user2Scores.slice(index + 1)]);
+    }
   };
 
-  calculateTotal = (scores) => {
+  const calculateTotal = (scores) => {
     return scores.reduce((total, score) => total + score, 0);
   };
 
-  render() {
-    const { user1Scores, user2Scores } = this.state;
-    const user1Total = this.calculateTotal(user1Scores);
-    const user2Total = this.calculateTotal(user2Scores);
+  const resetScores = () => {
+    setUser1Scores([0, 0, 0, 0, 0]);
+    setUser2Scores([0, 0, 0, 0, 0]);
+  };
 
-    return (
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Rodada </th>
-              <th>
-                <input className="input-user1" type="text" placeholder="Jogador 1" />
-              </th>
-              <th>
-                <input className="input-user2" type="text" placeholder="Jogador 2" />
-              </th>
+  const user1Total = calculateTotal(user1Scores);
+  const user2Total = calculateTotal(user2Scores);
+
+  return (
+    <div className="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Rodada </th>
+            <th>
+              <input className="input-user1" type="text" placeholder="Jogador 1" />
+            </th>
+            <th>
+              <input className="input-user2" type="text" placeholder="Jogador 2" />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {user1Scores.map((score, index) => (
+            <tr key={index}>
+              <td className="indexTD">{index + 1}</td>
+              <td>
+                <input
+                  type="number"
+                  placeholder="0"
+                  value={score}
+                  onChange={(e) => handleInputChange(e, index, "user1")}
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  placeholder="0"
+                  value={user2Scores[index]}
+                  onChange={(e) => handleInputChange(e, index, "user2")}
+                />
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {user1Scores.map((score, index) => (
-              <tr key={index}>
-                <td className="indexTD">{index + 1}</td>
-                <td>
-                  <input
-                    type="number"
-                    placeholder="0"
-                    value={score}
-                    onChange={(e) => this.handleInputChange(e, index, "user1")}
-                    
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    placeholder="0"
-                    value={user2Scores[index]}
-                    onChange={(e) => this.handleInputChange(e, index, "user2")}
-                  />
-                </td>
-              </tr>
-            ))}
-            <tr>
-              <td className="total">Total:</td>
-              <td className="total-user1">{user1Total}</td>
-              <td className="total-user2">{user2Total}</td>
-            </tr>
-          </tbody>
-        </table>
-      
-      </div>
-    );
-  }
-}
+          ))}
+          <tr>
+            <td className="total">Total:</td>
+            <td className="total-user1">{user1Total}</td>
+            <td className="total-user2">{user2Total}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br/>
+      <button className='buttonRestartPoints' onClick={resetScores}>Reset Scores</button>
+    </div>
+  );
+};
 
 export default Table;

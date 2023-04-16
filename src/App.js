@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.tableRef = React.createRef();
     this.state = {
       isRedActive: false,
       isBlackActive: false,
@@ -59,7 +60,6 @@ class App extends React.Component {
       isBlackActive: true,
     });
   }
- 
 
   render() {
     const hrClassName = this.state.isRedActive ? 'hrColorRed' : 'hrColorBlack';
@@ -91,13 +91,15 @@ class App extends React.Component {
          />
          
         </div>
-        <Table />
+       
+          <Table  />
+        <br/>
         <hr className={hrClassName} />
-      
         <Footer />
       </div>
     );
   }
+ 
 }
 
 export default App;

@@ -19,16 +19,16 @@
 
 .hrColorBlack{
   width: 350px;
-  margin-top: 44px;
-  border: solid 1px black;
+  margin-top: 14px;
+  border: solid 2px black;
   display: block;
 }
 
 .hrColorRed{
   width: 350px;
-  margin-top: 44px;
+  margin-top: 14px;
   display: block; 
-  border: solid 1px rgb(255, 0, 0);
+  border: solid 2px rgb(255, 0, 0);
 }
 
 
@@ -41,4 +41,9 @@
   justify-content: space-between;
   align-items: center;
   width: 380px;
+}
+
+
+.h1-container{
+  margin: 0;
 }
