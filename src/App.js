@@ -6,7 +6,7 @@ import React from 'react';
 import Counter from './components/Counter';
 import ButtonUser1 from './components/ButtonUser1';
 import ButtonUser2 from './components/ButtonUser2';
-
+import Footer from './components/Footer';
 
 
 
@@ -94,7 +94,7 @@ class App extends React.Component {
         <Table />
         <hr className={hrClassName} />
       
-
+        <Footer />
       </div>
     );
   }
