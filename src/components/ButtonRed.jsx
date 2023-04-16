@@ -5,14 +5,14 @@ import { GiCard3Hearts } from "react-icons/gi";
 class ButtonRed extends React.Component{
     render(){
         return(
-            <div>   
+            <>   
              <button 
             className='redButton'
-            onClick={this.props.manegeRedClick}>
+            onClick={this.props.manageRedClick}>
                 <GiCard3Hearts />
             </button>
 
-            </div>
+            </>
         )
     }
 }

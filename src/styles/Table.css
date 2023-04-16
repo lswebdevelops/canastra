@@ -1,6 +1,7 @@
 .table-container {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 5px;
+  background-color: white;   
 }
 table {
   display: inline-block;
@@ -27,7 +28,7 @@ table {
   }
   
   td,tr,th{
-    border: solid black 2px;
+    border: solid rgb(145, 142, 142) 2px;
   }
   input{
     border:none;

@@ -5,13 +5,13 @@ import { GiCard3Clubs } from "react-icons/gi";
 class ButtonBlack extends React.Component{
     render(){
         return(
-            <div>
+            <>
                 <button 
              className='blackButton'
-             onClick={this.props.manegeBlackClick}>
+             onClick={this.props.manageBlackClick}>
                 <GiCard3Clubs />
              </button>
-            </div>
+            </>
         )
     }
 }
