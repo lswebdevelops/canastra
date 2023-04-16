@@ -71,7 +71,7 @@ const Table = () => {
         </tbody>
       </table>
       <br/>
-      <button className='buttonRestartPoints' onClick={resetScores}>Reset Scores</button>
+      <button className='buttonRestartPoints' onClick={resetScores}>Zerar pontos</button>
     </div>
   );
 };
