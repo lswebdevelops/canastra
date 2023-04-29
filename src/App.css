@@ -38,12 +38,47 @@
 
 .coutingRounds{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 380px;
 }
 
+.users-name-container{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  padding: 0;
+  padding-bottom: 15px;
+}
+
+
+.winner-loser-container{
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  width: 100%;
+}
+
 
 .h1-container{
   margin: 0;
+}
+
+
+
+
+
+.input-user1{
+  font-weight: 600;
+  font-size: large;
+  text-align: left;
+
+}
+.input-user2{
+  font-weight: 600;
+  font-size: large;
+  text-align: right;
+
 }

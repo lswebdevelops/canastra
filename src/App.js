@@ -19,6 +19,8 @@ class App extends React.Component {
       isBlackActive: false,
       numClicksUser1: 0,
       numClicksUser2: 0,
+      user1Input: '',
+      user2Input: '',
     };
     this.manageClickUser1 = this.manageClickUser1.bind(this);
     this.manageClickUser2 = this.manageClickUser2.bind(this);
@@ -26,20 +28,22 @@ class App extends React.Component {
     this.handleBlackClick = this.handleBlackClick.bind(this);
     this.manageNumberClickUser1 = this.manageNumberClickUser1.bind(this);
     this.manageNumberClickUser2 = this.manageNumberClickUser2.bind(this);
+    this.handleUser1InputChange = this.handleUser1InputChange.bind(this);
+    this.handleUser2InputChange = this.handleUser2InputChange.bind(this);
     // check for saved state data in local storage
     const savedState = JSON.parse(localStorage.getItem('appState'));
     if (savedState) {
       this.state = savedState;
     }
   }
-  // saving data to device
+ // saving data to device
   saveStateToLocalStorage = () => {
     localStorage.setItem('appState', JSON.stringify(this.state));
   }
+  
   componentDidUpdate() {
     this.saveStateToLocalStorage();
   }
-  
   
   manageClickUser1(){
     this.setState(({ numClicksUser1 })=>({ numClicksUser1: numClicksUser1 + 1}));
@@ -74,44 +78,102 @@ class App extends React.Component {
     });
   }
 
-  render() {
-    const hrClassName = this.state.isRedActive ? 'hrColorRed' : 'hrColorBlack';
-    return (
-      <div className="App">
-        <div className='buttonSuits'>
-          <ButtonRed manageRedClick={this.handleRedClick} />
-          <ButtonBlack manageBlackClick={this.handleBlackClick} />
-        </div>
-        <h1 className='h1-container'>CANASTRA</h1>
-        <hr className={hrClassName} />
-        <div className='coutingRounds'>
-        <div className='div-wins'>Partidas<br></br> ganhas</div> 
-        <Counter 
-        numClicksUser1={this.state.numClicksUser1}
-        manageNumberClickUser1={this.manageNumberClickUser1}   
-         />
-         <ButtonUser1 
-         text="+"
-         manageClickUser1={this.manageClickUser1}
-         />
-          <Counter 
-          numClicksUser2={this.state.numClicksUser2}
-          manageNumberClickUser2={this.manageNumberClickUser2}   
-         />
-         <ButtonUser2
-         text="+" 
-         manageClickUser2={this.manageClickUser2}
-         />
-         
-        </div>
-       
-          <Table  />
-        <br/>
-        <hr className={hrClassName} />
-        <Footer />
-      </div>
-    );
+  handleUser1InputChange(event) {
+    this.setState({ user1Input: event.target.value });
   }
+  
+  handleUser2InputChange(event) {
+    this.setState({ user2Input: event.target.value });
+  }
+ render() {
+  const hrClassName = this.state.isRedActive ? 'hrColorRed' : 'hrColorBlack';
+  return (
+    <div className="App">
+      <div className='buttonSuits'>
+        <ButtonRed manageRedClick={this.handleRedClick} />
+        <ButtonBlack manageBlackClick={this.handleBlackClick} />
+      </div>
+      <h1 className='h1-container'>CANASTRA</h1>
+      <hr className={hrClassName} />
+
+
+
+      <div className='coutingRounds'>
+
+
+    <div className='users-name-container'>
+         {/* user 1 */}
+         <div className="input-container">
+          
+          <input
+          className='input-user1'
+            type="text"
+            id="input-user1"
+            value={this.state.inputUser1}
+            onChange={(e) => this.setState({ inputUser1: e.target.value })}
+          />
+        </div>
+    {/* user 2 */}
+
+        <div className="input-container">
+               <input className='input-user2'
+            type="text"
+            id="input-user2"
+            value={this.state.inputUser2}
+            onChange={(e) => this.setState({ inputUser2: e.target.value })}
+          />
+        </div>
+
+    </div>
+
+<div className='winner-loser-container'>
+
+<Counter 
+  numClicksUser1={this.state.numClicksUser1}
+  manageNumberClickUser1={this.manageNumberClickUser1}   
+/>
+<ButtonUser1 
+  text="+"
+  manageClickUser1={this.manageClickUser1}
+/>
+
+<br>
+</br>
+
+
+
+<Counter 
+  numClicksUser2={this.state.numClicksUser2}
+  manageNumberClickUser2={this.manageNumberClickUser2}   
+/>
+<ButtonUser2
+  text="+" 
+  manageClickUser2={this.manageClickUser2}
+/>
+</div>
+</div>
+ 
+     
+
+
+
+
+
+
+
+
+
+
+
+
+      <Table  />
+      <br/>
+      <hr className={hrClassName} />
+      <Footer />
+    </div>
+  );
+}
+
  
 }
 

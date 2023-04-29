@@ -30,17 +30,7 @@ const Table = () => {
   return (
     <div className="table-container">
       <table>
-        <thead>
-          <tr>
-            <th>Rodada </th>
-            <th>
-              <input className="input-user1" type="text" placeholder="Jogador 1" />
-            </th>
-            <th>
-              <input className="input-user2" type="text" placeholder="Jogador 2" />
-            </th>
-          </tr>
-        </thead>
+        
         <tbody>
           {user1Scores.map((score, index) => (
             <tr key={index}>
