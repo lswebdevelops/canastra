@@ -32,8 +32,7 @@ class App extends React.Component {
       this.state = savedState;
     }
   }
-  // saving data to device 
-  
+  // saving data to device
   saveStateToLocalStorage = () => {
     localStorage.setItem('appState', JSON.stringify(this.state));
   }
