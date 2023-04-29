@@ -20,14 +20,28 @@ class App extends React.Component {
       numClicksUser1: 0,
       numClicksUser2: 0,
     };
-     this.manageClickUser1 = this.manageClickUser1.bind(this);
-     this.manageClickUser2 = this.manageClickUser2.bind(this);
+    this.manageClickUser1 = this.manageClickUser1.bind(this);
+    this.manageClickUser2 = this.manageClickUser2.bind(this);
     this.handleRedClick = this.handleRedClick.bind(this);
     this.handleBlackClick = this.handleBlackClick.bind(this);
     this.manageNumberClickUser1 = this.manageNumberClickUser1.bind(this);
     this.manageNumberClickUser2 = this.manageNumberClickUser2.bind(this);
-
+    // check for saved state data in local storage
+    const savedState = JSON.parse(localStorage.getItem('appState'));
+    if (savedState) {
+      this.state = savedState;
+    }
   }
+  // saving data to device 
+  
+  saveStateToLocalStorage = () => {
+    localStorage.setItem('appState', JSON.stringify(this.state));
+  }
+  componentDidUpdate() {
+    this.saveStateToLocalStorage();
+  }
+  
+  
   manageClickUser1(){
     this.setState(({ numClicksUser1 })=>({ numClicksUser1: numClicksUser1 + 1}));
   }
