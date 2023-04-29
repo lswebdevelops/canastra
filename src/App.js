@@ -107,6 +107,7 @@ class App extends React.Component {
           
           <input
           className='input-user1'
+          placeholder='Jogador 1'
             type="text"
             id="input-user1"
             value={this.state.inputUser1}
@@ -117,6 +118,7 @@ class App extends React.Component {
 
         <div className="input-container">
                <input className='input-user2'
+            placeholder='Jogador 2'
             type="text"
             id="input-user2"
             value={this.state.inputUser2}

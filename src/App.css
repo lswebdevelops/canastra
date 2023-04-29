@@ -7,8 +7,6 @@
   align-items: center;
 }
 
-
-
 .buttonSuits{
   display: flex;
   margin: 0;
@@ -30,11 +28,6 @@
   display: block; 
   border: solid 2px rgb(255, 0, 0);
 }
-
-
-
-
-
 
 .coutingRounds{
   display: flex;
@@ -66,19 +59,13 @@
   margin: 0;
 }
 
-
-
-
-
 .input-user1{
   font-weight: 600;
   font-size: large;
   text-align: left;
-
 }
 .input-user2{
   font-weight: 600;
   font-size: large;
   text-align: right;
-
 }
