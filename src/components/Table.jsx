@@ -64,6 +64,11 @@ const Table = () => {
       </table>
       <br/>
       <button className='buttonRestartPoints' onClick={resetScores}>Zerar pontos</button>
+<a
+href='https://lswebdevelops.github.io/canastra2/'>
+<button 
+className='button2Players' >Dois Jogadores</button>
+</a>
     </div>
   );
 };

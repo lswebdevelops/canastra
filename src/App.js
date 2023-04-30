@@ -199,13 +199,6 @@ class App extends React.Component {
   </div>
 </div>
  
-
-
-
-
-
-
-
            <Table  />
       <br/>
       <hr className={hrClassName} />
