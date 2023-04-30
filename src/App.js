@@ -63,7 +63,7 @@ class App extends React.Component {
     this.setState(({ numClicksUser2 })=>({ numClicksUser2: numClicksUser2 + 1}));
   }
   manageNumberClickUser2(){
-    if(this.state.numClicksUser2){
+    if(this.state.numClicksUser2 > 0 ){
       this.setState(({ numClicksUser2 })=>({ numClicksUser2: numClicksUser2 - 1}));
     }
   }
