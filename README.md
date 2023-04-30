@@ -2,7 +2,7 @@ https://lswebdevelops.github.io/canastra/
 
 
 
-![Website](https://github.com/lswebdevelops/canastra/blob/main/src/images/app_screenshot.png)
+![Website](https://github.com/lswebdevelops/canastra/blob/main/src/images/canastra_screenshot3players.png)
 
 
 # Getting Started with Create React App
