@@ -17,6 +17,7 @@
 
 .hrColorBlack{
   width: 90%;
+  max-width: 450px;
   margin-top: 14px;
   border: solid 2px black;
   display: block;
@@ -24,6 +25,7 @@
 
 .hrColorRed{
   width: 90%;
+  max-width: 450px;
   margin-top: 14px;
   display: block; 
   border: solid 2px rgb(255, 0, 0);
