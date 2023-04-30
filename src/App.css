@@ -16,14 +16,14 @@
 }
 
 .hrColorBlack{
-  width: 350px;
+  width: 90%;
   margin-top: 14px;
   border: solid 2px black;
   display: block;
 }
 
 .hrColorRed{
-  width: 350px;
+  width: 90%;
   margin-top: 14px;
   display: block; 
   border: solid 2px rgb(255, 0, 0);
@@ -34,14 +34,16 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 380px;
+  width: 90%;
 }
 
 .users-name-container{
   display: flex;
+
   justify-content: center;
   margin: auto;
-  width: 100%;
+  width: 90%;
+  gap: 20px;
   padding: 0;
   padding-bottom: 15px;
 }
@@ -49,11 +51,20 @@
 
 .winner-loser-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: auto;
-  width: 100%;
-}
+  width: 90%;
 
+}
+.user-container{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 90%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
 
 .h1-container{
   margin: 0;
@@ -62,10 +73,17 @@
 .input-user1{
   font-weight: 600;
   font-size: large;
-  text-align: left;
+  text-align: center;
 }
 .input-user2{
   font-weight: 600;
   font-size: large;
-  text-align: right;
+  text-align: center;
 }
+.input-user3{
+  font-weight: 600;
+  font-size: large;
+  text-align: center;
+}
+
+

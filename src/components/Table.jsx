@@ -3,16 +3,21 @@ import React, { useState } from 'react';
 import "../styles/Table.css";
 
 const Table = () => {
-  const [user1Scores, setUser1Scores] = useState([0, 0, 0, 0, 0]);
-  const [user2Scores, setUser2Scores] = useState([0, 0, 0, 0, 0]);
+  const [users, setUsers] = useState([
+    { name: "User 1", scores: [0, 0, 0, 0, 0] },
+    { name: "User 2", scores: [0, 0, 0, 0, 0] },
+    { name: "User 3", scores: [0, 0, 0, 0, 0] },
+  ]);
 
-  const handleInputChange = (event, index, user) => {
+  const handleInputChange = (event, index, userIndex) => {
     const value = event.target.value;
-    if (user === "user1") {
-      setUser1Scores([...user1Scores.slice(0, index), parseInt(value), ...user1Scores.slice(index + 1)]);
-    } else {
-      setUser2Scores([...user2Scores.slice(0, index), parseInt(value), ...user2Scores.slice(index + 1)]);
-    }
+    setUsers(prevState => {
+      const newScores = [...prevState[userIndex].scores];
+      newScores[index] = parseInt(value);
+      const newUsers = [...prevState];
+      newUsers[userIndex] = { ...prevState[userIndex], scores: newScores };
+      return newUsers;
+    });
   };
 
   const calculateTotal = (scores) => {
@@ -20,43 +25,40 @@ const Table = () => {
   };
 
   const resetScores = () => {
-    setUser1Scores([0, 0, 0, 0, 0]);
-    setUser2Scores([0, 0, 0, 0, 0]);
+    setUsers(prevState => {
+      return prevState.map(user => {
+        return { ...user, scores: [0, 0, 0, 0, 0] };
+      });
+    });
   };
 
-  const user1Total = calculateTotal(user1Scores);
-  const user2Total = calculateTotal(user2Scores);
-
+  const totalScores = users.map(user => calculateTotal(user.scores));
+  
   return (
     <div className="table-container">
       <table>
-        
+       
         <tbody>
-          {user1Scores.map((score, index) => (
+          {users[0].scores.map((_, index) => (
             <tr key={index}>
               <td className="indexTD">{index + 1}</td>
-              <td>
-                <input
-                  type="number"
-                  placeholder="0"
-                  value={score}
-                  onChange={(e) => handleInputChange(e, index, "user1")}
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  placeholder="0"
-                  value={user2Scores[index]}
-                  onChange={(e) => handleInputChange(e, index, "user2")}
-                />
-              </td>
+              {users.map((user, userIndex) => (
+                <td key={userIndex}>
+                  <input
+                    type="number"
+                    placeholder="0"
+                    value={user.scores[index]}
+                    onChange={(e) => handleInputChange(e, index, userIndex)}
+                  />
+                </td>
+              ))}
             </tr>
           ))}
           <tr>
             <td className="total">Total:</td>
-            <td className="total-user1">{user1Total}</td>
-            <td className="total-user2">{user2Total}</td>
+            {totalScores.map((total, index) => (
+              <td className={`total-user${index + 1}`} key={index}>{total}</td>
+            ))}
           </tr>
         </tbody>
       </table>

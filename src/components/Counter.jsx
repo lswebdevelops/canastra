@@ -15,7 +15,12 @@ class Counter extends React.Component{
            onClick={this.props.manageNumberClickUser2}> 
             {this.props.numClicksUser2} 
             
-           </div>      
+           </div>     
+           <div className='div-wins-user3'
+           onClick={this.props.manageNumberClickUser3}> 
+            {this.props.numClicksUser3} 
+            
+           </div>   
             </div>
         );
     }

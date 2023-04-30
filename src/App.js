@@ -6,8 +6,8 @@ import React from 'react';
 import Counter from './components/Counter';
 import ButtonUser1 from './components/ButtonUser1';
 import ButtonUser2 from './components/ButtonUser2';
+import ButtonUser3 from './components/ButtonUser3';
 import Footer from './components/Footer';
-
 
 
 class App extends React.Component {
@@ -19,17 +19,22 @@ class App extends React.Component {
       isBlackActive: false,
       numClicksUser1: 0,
       numClicksUser2: 0,
+      numClicksUser3: 0,
       user1Input: '',
       user2Input: '',
+      user3Input: '',
     };
     this.manageClickUser1 = this.manageClickUser1.bind(this);
     this.manageClickUser2 = this.manageClickUser2.bind(this);
+    this.manageClickUser3 = this.manageClickUser3.bind(this);
     this.handleRedClick = this.handleRedClick.bind(this);
     this.handleBlackClick = this.handleBlackClick.bind(this);
     this.manageNumberClickUser1 = this.manageNumberClickUser1.bind(this);
     this.manageNumberClickUser2 = this.manageNumberClickUser2.bind(this);
+    this.manageNumberClickUser3 = this.manageNumberClickUser3.bind(this);
     this.handleUser1InputChange = this.handleUser1InputChange.bind(this);
     this.handleUser2InputChange = this.handleUser2InputChange.bind(this);
+    this.handleUser3InputChange = this.handleUser3InputChange.bind(this);
     // check for saved state data in local storage
     const savedState = JSON.parse(localStorage.getItem('appState'));
     if (savedState) {
@@ -62,6 +67,14 @@ class App extends React.Component {
       this.setState(({ numClicksUser2 })=>({ numClicksUser2: numClicksUser2 - 1}));
     }
   }
+  manageClickUser3(){
+    this.setState(({ numClicksUser3 })=>({ numClicksUser3: numClicksUser3 + 1}));
+  }
+  manageNumberClickUser3(){
+    if(this.state.numClicksUser3 > 0){
+      this.setState(({ numClicksUser3 })=>({ numClicksUser3: numClicksUser3 - 1}));
+    }
+  }
   
 
   handleRedClick() {
@@ -85,6 +98,10 @@ class App extends React.Component {
   handleUser2InputChange(event) {
     this.setState({ user2Input: event.target.value });
   }
+   handleUser3InputChange(event) {
+    this.setState({ user3Input: event.target.value });
+  }
+
  render() {
   const hrClassName = this.state.isRedActive ? 'hrColorRed' : 'hrColorBlack';
   return (
@@ -125,11 +142,31 @@ class App extends React.Component {
             onChange={(e) => this.setState({ inputUser2: e.target.value })}
           />
         </div>
-
+ {/* user 3 */}
+  <div className="input-container">
+    <input
+      className='input-user3'
+      placeholder='Jogador 3'
+      type="text"
+      id="input-user3"
+      value={this.state.inputUser3}
+      onChange={(e) => this.setState({ inputUser3: e.target.value })}
+    />
+  </div>
     </div>
 
-<div className='winner-loser-container'>
 
+
+
+
+
+
+
+
+
+
+<div className='winner-loser-container'>
+<div className='user-container'>
 <Counter 
   numClicksUser1={this.state.numClicksUser1}
   manageNumberClickUser1={this.manageNumberClickUser1}   
@@ -139,23 +176,29 @@ class App extends React.Component {
   manageClickUser1={this.manageClickUser1}
 />
 
-<br>
-</br>
-
-
-
 <Counter 
   numClicksUser2={this.state.numClicksUser2}
   manageNumberClickUser2={this.manageNumberClickUser2}   
 />
 <ButtonUser2
-  text="+" 
-  manageClickUser2={this.manageClickUser2}
-/>
-</div>
+      text="+" 
+      manageClickUser2={this.manageClickUser2}
+    />
+  
+ 
+   
+    <Counter 
+      numClicksUser3={this.state.numClicksUser3}
+      manageNumberClickUser3={this.manageNumberClickUser3}   
+    />
+    <ButtonUser3
+      text="+" 
+      manageClickUser3={this.manageClickUser3}
+    />
+  </div>
+  </div>
 </div>
  
-     
 
 
 
@@ -163,12 +206,7 @@ class App extends React.Component {
 
 
 
-
-
-
-
-
-      <Table  />
+           <Table  />
       <br/>
       <hr className={hrClassName} />
       <Footer />

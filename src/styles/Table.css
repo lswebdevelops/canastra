@@ -33,9 +33,9 @@ table {
   input{
     border:none;
     text-align: right;
-    width: 140px;
+    width: 90px;
   }
-  .total-user1, .total-user2{
+  .total-user1, .total-user2, .total-user3 {
     font-size: large;
     font-weight: 700;
     text-align: right;
@@ -47,7 +47,7 @@ table {
   .indexTD{
     text-align: center;
     font-weight: 600;
-
+    
   }
 
   .buttonRestartPoints{
